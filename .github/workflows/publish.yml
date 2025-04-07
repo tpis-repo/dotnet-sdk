@@ -1,0 +1,33 @@
+# .github/workflows/publish.yml
+
+name: Build and Publish NuGet Package
+
+on:
+  push:
+    tags:
+      - 'v*'  # مثلاً v1.2.3
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'  # اگه پروژه با نسخه خاصی هست اینو تغییر بده
+
+    - name: Restore dependencies
+      run: dotnet restore Tax Collect Data SDK.sln
+
+    - name: Build Library project
+      run: dotnet build TaxCollectData.Library/TaxCollectData.Library.csproj --configuration Release --no-restore
+
+    - name: Pack Library project
+      run: dotnet pack TaxCollectData.Library/TaxCollectData.Library.csproj --configuration Release --no-build --output ./nupkgs -p:PackageVersion=${{ github.ref_name }}
+
+    - name: Push package to NuGet
+      run: dotnet nuget push ./nupkgs/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
