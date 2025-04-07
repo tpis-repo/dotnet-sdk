@@ -21,7 +21,7 @@ jobs:
         dotnet-version: '8.0.x'  # اگه پروژه با نسخه خاصی هست اینو تغییر بده
 
     - name: Restore dependencies
-      run: dotnet restore Tax Collect Data SDK.sln
+      run: dotnet restore
 
     - name: Build Library project
       run: dotnet build TaxCollectData.Library/TaxCollectData.Library.csproj --configuration Release --no-restore
