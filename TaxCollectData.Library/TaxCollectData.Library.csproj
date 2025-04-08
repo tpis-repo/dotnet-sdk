@@ -6,8 +6,8 @@
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
 
-    <Company>Mohaymen</Company>
-    <Authors>Mohaymen</Authors>
+    <Company>Mohaymen.Test.SDK</Company>
+    <Authors>Mohaymen.Test.SDK</Authors>
     <PackageId>TaxCollectData.Library.Test.SDK</PackageId>
     <Version>2.0.22</Version>
     <Description>Library for secure data exchange with Iranian Tax Authority.</Description>
