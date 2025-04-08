@@ -8,7 +8,7 @@
 
     <Company>Mohaymen</Company>
     <Authors>Mohaymen</Authors>
-    <PackageId>TaxCollectData.Library</PackageId>
+    <PackageId>TaxCollectData.Library.Test.SDK</PackageId>
     <Version>2.0.22</Version>
     <Description>Library for secure data exchange with Iranian Tax Authority.</Description>
     <PackageProjectUrl>https://github.com/your-org/your-repo</PackageProjectUrl>
